@@ -274,8 +274,8 @@ policy_params = {
             'fullyconnected_args': {},
             'hidden_layers': [256],
             'output_dim': 128,  # this is the hidden size of the rnn
-            'hidden_activation': tf.nn.relu,
-            'output_activation': tf.nn.relu,
+            'hidden_activation': tf.nn.swish,
+            'output_activation': tf.nn.swish,
             'normalizer_fn': None,
             'normalizer_params': None,
             'trainable': True,
@@ -286,8 +286,8 @@ policy_params = {
             'fullyconnected_args': {},
             'hidden_layers': [16],
             'output_dim': 16,
-            'hidden_activation': tf.nn.relu,
-            'output_activation': tf.nn.relu,
+            'hidden_activation': tf.nn.swish,
+            'output_activation': tf.nn.swish,
             'normalizer_fn': None,
             'normalizer_params': None,
             'trainable': True,
@@ -306,7 +306,7 @@ policy_params = {
             'fullyconnected_args': {},
             'hidden_layers': [16],
             # 'output_dim': None, # is determined by yhat / bhat
-            'hidden_activation': tf.nn.relu,
+            'hidden_activation': tf.nn.swish,
             'output_activation': None,
             'normalizer_fn': None,
             'normalizer_params': None,
@@ -315,7 +315,7 @@ policy_params = {
 
         ### Training
 
-        'optimizer': 'adam',  # <adam/sgd>
+        'optimizer': 'ada_delta',  # <adam/sgd>
         'weight_decay': 0.5,  # L2 regularization
         'lr_schedule': {  # learning rate schedule
             'endpoints': [],

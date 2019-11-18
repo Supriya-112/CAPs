@@ -776,6 +776,8 @@ class GCGPolicy(object):
                 optimizer = tf.train.AdamOptimizer(learning_rate=tf_lr_ph, epsilon=1e-4)
             elif self._optimizer == 'sgd':
                 optimizer = tf.train.GradientDescentOptimizer(learning_rate=tf_lr_ph)
+            elif self._optimizer == 'ada_delta':
+                optimizer = tf.train.AdadeltaOptimizer(learning_rate=tf_lr_ph, epsilon=1e-4)
             else:
                 raise NotImplementedError
             gradients = optimizer.compute_gradients(tf_cost, var_list=tf_policy_vars)
